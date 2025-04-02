@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Metadata-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robyn's Rolls</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="Robyn-profile">
+            <div class="Robyn-stats">
+                <h1>Robyn Leeds</h1>
+                <p>Level: {{level}}</p>
+                <p>Max HP: {{max_hit_points}}</p>
+                <p>Armor Class: {{armor_class}}</p>
+                <p>Spell DC: {{spell_save_dc}}</p>
+                <p>Healing Light Charges: {{daily_healing_light_dice}}</p>
+                <span>Passive </span>
+                <select name="passives" id="passives">
+                    <option value="passive_perception">Perception: {{passive_perception}}</option>
+                    <option value="passive_insight">Insight: {{passive_insight}}</option>
+                    <option value="passive_investigation">Investigation: {{passive_investigation}}</option>
+                    <option value="passive_stealth">Stealth: {{passive_stealth}}</option>
+                    <option value="passive_arcana">Arcana: {{passive_arcana}}</option>
+                    <option value="passive_history">History: {{passive_history}}</option>
+                    <option value="passive_nature">Nature: {{passive_nature}}</option>
+                    <option value="passive_religion">Religion: {{passive_religion}}</option>
+                    <option value="passive_medicine">Medicine: {{passive_medicine}}</option>
+                    <option value="passive_survival">Survival: {{passive_survival}}</option>
+                    <option value="passive_deception">Deception: {{passive_deception}}</option>
+                    <option value="passive_intimidation">Intimidation: {{passive_intimidation}}</option>
+                    <option value="passive_persuasion">Persuasion: {{passive_persuasion}}</option>
+                    <option value="passive_athletics">Athletics: {{passive_athletics}}</option>
+                    <option value="passive_acrobatics">Acrobatics: {{passive_acrobatics}}</option>
+                    <option value="passive_performance">Performance: {{passive_performance}}</option>
+                    <option value="passive_animal_handling">Animal Handling: {{passive_animal_handling}}</option>
+                    <option value="passive_sleight_of_hand">Sleight of Hand: {{passive_sleight_of_hand}}</option>
+                </select>
+                <h3>Click a button to roll!</h3> 
+            </div>
+            <img src="https://shadesofpurple.home.blog/wp-content/uploads/2025/03/peacock_tower.png" alt="Robyn AI Art">
+        </div>
+    </header>
+    <main>
+        <h2>Result</h2>
+        <div id="roll-result">
+            {% if roll_result %}
+                {{ roll_result }}
+            {% endif %}
+        </div>
+        
+        <h2>Standard Dice</h2>
+        <form action="/get-dice-roll" method="post">
+            <input type="hidden" name="roll_name" value="Four-Sided Dice">
+            <input type="submit" value="d4">
+        </form>
+        <form action="/get-dice-roll" method="post">
+            <input type="hidden" name="roll_name" value="Six-Sided Dice">
+            <input type="submit" value="d6">
+        </form>
+        <form action="/get-dice-roll" method="post">
+            <input type="hidden" name="roll_name" value="Eight-Sided Dice">
+            <input type="submit" value="d8">
+        </form>
+        <form action="/get-dice-roll" method="post">
+            <input type="hidden" name="roll_name" value="Ten-Sided Dice">
+            <input type="submit" value="d10">
+        </form>
+        <form action="/get-dice-roll" method="post">
+            <input type="hidden" name="roll_name" value="Twelve-Sided Dice">
+            <input type="submit" value="d12">
+        </form>
+        <form action="/get-dice-roll" method="post">
+            <input type="hidden" name="roll_name" value="Twenty-Sided Dice">
+            <input type="submit" value="d20">
+        </form>
+
+        <h2>Saving Throws</h2>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Strength Saving Throw">
+            <input type="submit" value="Strength">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Dexterity Saving Throw">
+            <input type="submit" value="Dexterity">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Constitution Saving Throw">
+            <input type="submit" value="Constitution">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Intelligence Saving Throw">
+            <input type="submit" value="Intelligence">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Wisdom Saving Throw">
+            <input type="submit" value="Wisdom">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Charisma Saving Throw">
+            <input type="submit" value="Charisma">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Concentration Saving Throw">
+            <input type="submit" value="Concentration">
+        </form>
+
+        <h2>Ability Checks</h2>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Strength Ability Check">
+            <input type="submit" value="Strength">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Dexterity Ability Check">
+            <input type="submit" value="Dexterity">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Constitution Ability Check">
+            <input type="submit" value="Constitution">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Intelligence Ability Check">
+            <input type="submit" value="Intelligence">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Wisdom Ability Check">
+            <input type="submit" value="Wisdom">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Charisma Ability Check">
+            <input type="submit" value="Charisma">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Initiative Ability Check">
+            <input type="submit" value="Initiative">
+        </form>
+
+        <h2>Skill Checks</h2>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Acrobatics Skill Check">
+            <input type="submit" value="Acrobatics">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Animal Handling Skill Check">
+            <input type="submit" value="Animal Handling">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Arcana Skill Check">
+            <input type="submit" value="Arcana">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Athletics Skill Check">
+            <input type="submit" value="Athletics">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Deception Skill Check">
+            <input type="submit" value="Deception">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="History Skill Check">
+            <input type="submit" value="History">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Insight Skill Check">
+            <input type="submit" value="Insight">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Intimidation Skill Check">
+            <input type="submit" value="Intimidation">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Investigation Skill Check">
+            <input type="submit" value="Investigation">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Medicine Skill Check">
+            <input type="submit" value="Medicine">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Nature Skill Check">
+            <input type="submit" value="Nature">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Perception Skill Check">
+            <input type="submit" value="Perception">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Performance Skill Check">
+            <input type="submit" value="Performance">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Persuasion Skill Check">
+            <input type="submit" value="Persuasion">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Religion Skill Check">
+            <input type="submit" value="Religion">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Sleight of Hand Skill Check">
+            <input type="submit" value="Sleight of Hand">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Stealth Skill Check">
+            <input type="submit" value="Stealth">
+        </form>
+        <form action="/get-ability-roll" method="post">
+            <input type="hidden" name="roll_name" value="Survival Skill Check">
+            <input type="submit" value="Survival">
+        </form> 
+
+        <h2>Attack Actions</h2>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Mainhand Dagger">
+            <input type="submit" value="Mainhand Dagger">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Mainhand Light Hammer">
+            <input type="submit" value="Mainhand Light Hammer">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Mainhand Shadow Blade">
+            <input type="submit" value="Mainhand Shadow Blade">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Light Crossbow">
+            <input type="submit" value="Light Crossbow">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Agonizing Eldritch Blast">
+            <input type="submit" value="Eldritch Blast Beam">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Sacred Flame Damage">
+            <input type="submit" value="Sacred Flame">
+        </form>
+    
+        <h2>Attack Bonus Actions</h2>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Offhand Dagger">
+            <input type="submit" value="Offhand Dagger">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Offhand Light Hammer">
+            <input type="submit" value="Offhand Light Hammer">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Offhand Shadow Blade">
+            <input type="submit" value="Offhand Shadow Blade">
+        </form>
+
+        <h2>Attack Reactions</h2>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Hel-ish Rebuke Damage">
+            <input type="submit" value="Hel-ish Rebuke">
+        </form>
+
+        <h2>Healing Bonus Actions</h2>
+        <form action="/get-buff-roll" method="post">
+            <input type="hidden" name="roll_name" value="Single Healing Light">
+            <input type="submit" value="Minimum Healing Light">
+        </form>
+        <form action="/get-buff-roll" method="post">
+            <input type="hidden" name="roll_name" value="Max Healing Light">
+            <input type="submit" value="Maximum Healing Light">
+        </form>
+
+        <h2>Healing on Short Rest</h2>
+        <form action="/get-buff-roll" method="post">
+            <input type="hidden" name="roll_name" value="Single Hit Dice">
+            <input type="submit" value="Minimum Hit Dice">
+        </form>
+        <form action="/get-buff-roll" method="post">
+            <input type="hidden" name="roll_name" value="All Hit Dice">           
+            <input type="submit" value="Maximum Hit Dice">
+        </form>
+
+        <h2>Talisman Effects</h2>
+        <form action="/get-buff-roll" method="post">
+            <input type="hidden" name="roll_name" value="Baseline Talisman Buff">
+            <input type="submit" value="Ability Check Buff">
+        </form>
+    </main>
+    
+    <script src="{{ url_for('static', filename='js/app.js') }}">
+    </script>
+     
+</body>
+</html>

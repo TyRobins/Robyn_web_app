@@ -1,0 +1,13 @@
+# Virtual environments
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Personal layout preferences
+.idea/
+
+# Logs
+*.log
+
