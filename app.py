@@ -1,4 +1,9 @@
 import flask
+#Experimental
+import threading
+import time
+import requests
+
 import dice
 import rolls
 import robyn
@@ -7,6 +12,18 @@ from markupsafe import Markup
 
 app = flask.Flask(__name__, static_folder='static')
 from flask import request, render_template
+
+#Experimental
+def keep_alive():
+    while True:
+        try:
+            requests.get('https://robyn-pn23.onrender.com/')
+            time.sleep(840)
+        except:
+            pass
+keep_alive_thread = threading.thread(target=keep_alive)
+keep_alive_thread.daemon = True
+keep_alive_thread.start()
 
 @app.route('/get-dice-roll', methods=['POST'])
 def get_dice_roll():
