@@ -236,6 +236,7 @@ def get_attack_roll():
         armor_class = robyn.armor_class,
         spell_save_dc = robyn.spell_save_dc,
         daily_healing_light_dice = robyn.daily_healing_light_dice,
+        inspiring_leader_temp_hp = robyn.inspiring_leader_temp_hp,
         passive_acrobatics = robyn.passive_acrobatics,
         passive_animal_handling = robyn.passive_animal_handling,
         passive_arcana = robyn.passive_arcana,
