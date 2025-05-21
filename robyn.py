@@ -66,14 +66,14 @@ passive_stealth = 10 + dexterity_modifier + stealth #14
 passive_survival = 10 + wisdom_modifier + survival #8
 
 #Leveling
-level = 3
+level = 4
 max_hit_points = 3 + (level * (5 + constitution_modifier))
 long_rest_hit_dice = math.floor(level / 2)
 proficiency_bonus = math.ceil((level / 4) + 1)
 spell_attack_bonus = charisma_modifier + proficiency_bonus
-spell_save_dc= 8 + spell_attack_bonus
+spell_save_dc = 8 + spell_attack_bonus
 daily_healing_light_dice = 1 + level
-
+inspiring_leader_temp_hp = charisma_modifier + level
 
 #Padded Armor
 armor_bonus = 1
@@ -85,6 +85,5 @@ concentration_advantage = True
 
 #Homebrew
 intimidation_disadvantage = True
-
 
 

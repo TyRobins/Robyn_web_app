@@ -17,6 +17,7 @@
                 <p>Armor Class: {{armor_class}}</p>
                 <p>Spell DC: {{spell_save_dc}}</p>
                 <p>Healing Light Charges: {{daily_healing_light_dice}}</p>
+                <p>Inspiring Leader Temp HP: {{inspiring_leader_temp_hp}}</p>
                 <span>Passive </span>
                 <select name="passives" id="passives">
                     <option value="passive_perception">Perception: {{passive_perception}}</option>
@@ -235,6 +236,10 @@
         <form action="/get-attack-roll" method="post">
             <input type="hidden" name="roll_name" value="Sacred Flame Damage">
             <input type="submit" value="Sacred Flame">
+        </form>
+        <form action="/get-attack-roll" method="post">
+            <input type="hidden" name="roll_name" value="Sword Burst Damage">
+            <input type="submit" value="Sword Burst">
         </form>
     
         <h2>Attack Bonus Actions</h2>

@@ -57,6 +57,8 @@ rolls.main_light_hammer_damage #Bludgeoning Damage
 
 rolls.sacred_flame_damage #Dexterity Save #Radiant Damage
 
+rolls.sword_burst_damage #Dexterity Save #Force Damage
+
 #Attack Bonus Actions
 rolls.off_dagger_attack
 rolls.off_dagger_damage #Piercing Damage

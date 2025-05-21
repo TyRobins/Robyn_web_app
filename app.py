@@ -225,6 +225,8 @@ def get_attack_roll():
         roll_result = f"Eldritch Blast Attack: {total_roll} (Natural {total_roll-(robyn.charisma_modifier + robyn.proficiency_bonus)})<br> <br>Eldritch Blast Damage: <span class='spoiler'>{rolls.agonizing_eldritch_damage()} (Force)</span>"
     elif roll_name == "Sacred Flame Damage":
         roll_result = f"Sacred Flame Damage (if Dexterity save < {robyn.spell_save_dc}): {rolls.sacred_flame_damage()} (Radiant)"
+    elif roll_name == "Sword Burst Damage":
+        roll_result = f"Sword Burst Damage (if Dexterity save < {robyn.spell_save_dc}): {rolls.sword_burst_damage()} (Force)"
     else:
         roll_result = "I'm sorry, I can't help with that yet."
     return render_template('index.html',   

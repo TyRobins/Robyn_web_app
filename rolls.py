@@ -2,7 +2,7 @@
 import dice
 import robyn
 
-#Saving Throws (I believe this should use d20 instead of d12+d8, but I should confirm)
+#Saving Throws
 def strength_throw():
     return dice.randomer_fct_d20() + robyn.strength_modifier + robyn.strength_save
 def dexterity_throw():
@@ -105,10 +105,12 @@ def light_crossbow_damage():
     return dice.randomer_fct_d8() + robyn.dexterity_modifier
 def sacred_flame_damage():
     return dice.randomer_fct_d8()
+def sword_burst_damage():
+    return dice.randomer_fct_d6()
 def hel_ish_rebuke_damage():
     return sum(dice.randomer_fct_d10() for _ in range(3))
 
-#Healing Hit Points (all dice is controversial, particularly for healing light as it is max 4)
+#Healing Hit Points
 def short_rest_hit_dice():
     return dice.randomer_fct_d8() + robyn.constitution_modifier
 def all_short_rest_hit_dice():
@@ -118,6 +120,6 @@ def healing_light_dice():
 def max_healing_light_dice():
     return sum(dice.randomer_fct_d6() for _ in range(robyn.charisma_modifier))
 
-#Fearful Symmetry Talisman
+#Buffs and Debuffs
 def talisman_ability_check_buff():
     return dice.randomer_fct_d4()
